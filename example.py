@@ -2,7 +2,7 @@
 import pyMail
 
 #初始化接收邮件类
-rml = mailUtils.ReceiveMailDealer('mail_address','mail_pwd','imap.gmail.com')
+rml = pyMail.ReceiveMailDealer('mail_address','mail_pwd','imap.gmail.com')
 rml.select('INBOX')
 #获取未读邮件列表
 print rml.getUnread()#('OK',['1 2 3 4'])
@@ -22,7 +22,7 @@ for num in rml.getUnread()[1][0].split(' '):
             fileob.close()
 
 #初始化发送邮件类
-sml = mailUtils.SendMailDealer('mail_address','mail_pwd','smtp.gmail.com')
+sml = pyMail.SendMailDealer('mail_address','mail_pwd','smtp.gmail.com')
 #设置邮件信息
 sml.setMailInfo('paramiao@gmail.com','测试','正文','plain','/home/paramiao/resume.html')
 #发送邮件
